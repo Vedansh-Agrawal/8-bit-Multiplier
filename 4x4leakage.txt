@@ -1,0 +1,83 @@
+*4x4 multiplier
+
+.INCLUDE 22nm_MGK.pm
+.INCLUDE AND.txt
+.INCLUDE FullAdder.txt
+.INCLUDE HalfAdder.txt
+
+
+
+*parameters
+
+.PARAM Wmin = 22nm
+.PARAM Lmin = 22nm
+.PARAM XX = 1
+.PARAM tr = 10p
+
+.temp = 25 
+
+vdd n1 0 1
+
+*netlist
+xA1 P0 A0 B0 n1 0 AND
+xA2 O0 A0 B1 n1 0 AND
+xA3 O1 A1 B0 n1 0 AND
+xA4 O2 A0 B2 n1 0 AND
+xA5 O3 A2 B0 n1 0 AND
+xA6 O4 A1 B1 n1 0 AND
+xA7 O5 A1 B2 n1 0 AND
+xA8 O6 A0 B3 n1 0 AND
+xA9 O7 A3 B0 n1 0 AND
+xA10 O8 A2 B1 n1 0 AND
+xA11 O9 A2 B2 n1 0 AND
+xA12 O10 A3 B1 n1 0 AND
+xA13 O11 A1 B3 n1 0 AND
+xA14 O12 A2 B3 n1 0 AND
+xA15 O13 A3 B2 n1 0 AND
+xA16 O14 A3 B3 n1 0 AND
+
+xH1 P1 C0 O0 O1 n1 0 Half
+xH2 S0 C2 O3 O4 n1 0 Half
+xH3 S1 C3 O7 O8 n1 0 Half
+xH4 P4 C8 S4 C5 n1 0 Half
+
+xF1 P2 C1 C0 O2 S0 n1 0 Full
+xF2 S2 C4 S1 O5 C2 n1 0 Full
+xF3 P3 C5 O6 C1 S2 n1 0 Full
+xF4 S3 C6 C3 O9 O10 n1 0 Full
+xF5 S4 C7 S3 C4 O11 n1 0 Full
+xF6 S5 C9 O13 O12 C6 n1 0 Full
+xF7 P5 C10 C7 C8 S5 n1 0 Full
+xF8 P6 CO O14 C9 C10 n1 0 Full
+
+Cout1 P0 0 1f
+Cout2 P1 0 1f
+Cout3 P2 0 1f
+Cout4 P3 0 1f
+Cout5 P4 0 1f
+Cout6 P5 0 1f
+Cout7 P6 0 1f
+Cout8 CO 0 1f
+
+*Input
+V1 A0 0 0
+V2 A1 0 0
+V3 A2 0 0
+V4 A3 0 0
+V5 B0 0 0
+V6 B1 0 0
+V7 B2 0 0
+V8 B3 0 0
+.op
+
+*Analysis
+.CONTROL
+
+run
+
+let leakage_power = -1*vdd#branch+(v(A0)*(-V1#branch))+(v(A1)*(-V2#branch))+(v(A2)*(-V3#branch)+(v(A3)*(-V4#branch))+v(B0)*(-V5#branch))+(v(B1)*(-V6#branch))+(v(B2)*(-V7#branch)+(v(B3)*(-V8#branch)))
+echo "$&leakage_power">>"leakagepower.txt"
+
+quit
+.ENDC
+.END
