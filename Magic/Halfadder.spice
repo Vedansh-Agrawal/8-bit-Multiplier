@@ -1,0 +1,118 @@
+* SPICE3 file created from XORGate.ext - technology: scmos
+
+.option scale=1u
+
+M1000 a_n805_n151# in2 a_n800_n177# Gnd nfet w=4 l=2
++  ad=20 pd=18 as=40 ps=36
+M1001 sum a_n806_n89# a_n795_n46# w_n801_n52# pfet w=8 l=2
++  ad=80 pd=52 as=80 ps=52
+M1002 sum a_n790_n24# a_n768_n75# Gnd nfet w=4 l=2
++  ad=40 pd=36 as=40 ps=36
+M1003 a_n795_n75# a_n806_n89# a_n794_n97# Gnd nfet w=4 l=2
++  ad=40 pd=36 as=20 ps=18
+M1004 carry a_n805_n151# a_n771_n151# w_n823_n157# pfet w=8 l=2
++  ad=40 pd=26 as=40 ps=26
+M1005 a_n831_n41# in1 a_n838_n41# Gnd nfet w=4 l=2
++  ad=20 pd=18 as=20 ps=18
+M1006 sum a_n762_n100# a_n761_n46# w_n801_n52# pfet w=8 l=2
++  ad=0 pd=0 as=80 ps=52
+M1007 a_n795_n46# a_n790_n24# a_n795_n20# w_n801_n52# pfet w=8 l=2
++  ad=0 pd=0 as=40 ps=26
+M1008 a_n768_n75# a_n762_n100# a_n767_n97# Gnd nfet w=4 l=2
++  ad=0 pd=0 as=20 ps=18
+M1009 a_n800_n177# in1 a_n800_n194# Gnd nfet w=4 l=2
++  ad=0 pd=0 as=20 ps=18
+M1010 a_n832_n78# in2 a_n839_n78# w_n845_n84# pfet w=8 l=2
++  ad=40 pd=26 as=40 ps=26
+M1011 a_n761_n46# in1 a_n761_n20# w_n801_n52# pfet w=8 l=2
++  ad=0 pd=0 as=40 ps=26
+M1012 a_n831_n19# in1 a_n838_n19# w_n844_n25# pfet w=8 l=2
++  ad=40 pd=26 as=40 ps=26
+M1013 a_n805_n151# in1 a_n790_n151# w_n823_n157# pfet w=8 l=2
++  ad=80 pd=52 as=40 ps=26
+M1014 a_n832_n100# in2 a_n839_n100# Gnd nfet w=4 l=2
++  ad=20 pd=18 as=20 ps=18
+M1015 a_n805_n151# in2 a_n812_n151# w_n823_n157# pfet w=8 l=2
++  ad=0 pd=0 as=40 ps=26
+M1016 sum in1 a_n795_n75# Gnd nfet w=4 l=2
++  ad=0 pd=0 as=0 ps=0
+M1017 carry a_n805_n151# a_n771_n176# Gnd nfet w=4 l=2
++  ad=20 pd=18 as=20 ps=18
+C0 a_n790_n24# w_n801_n52# 16.02fF
+C1 sum in1 0.30fF
+C2 vdd sum 5.54fF
+C3 m2_n831_n100# a_n790_n24# 0.11fF
+C4 a_n806_n89# vdd 0.15fF
+C5 a_n768_n75# a_n762_n100# 0.24fF
+C6 a_n762_n100# sum 0.54fF
+C7 m2_n830_n41# a_n831_n41# 0.72fF
+C8 carry gnd 0.90fF
+C9 sum w_n801_n52# 2.26fF
+C10 vdd a_n839_n78# 1.44fF
+C11 a_n768_n75# m2_n831_n100# 0.72fF
+C12 a_n839_n100# gnd 0.72fF
+C13 w_n844_n25# in1 2.86fF
+C14 vdd w_n844_n25# 1.08fF
+C15 a_n806_n89# gnd 0.72fF
+C16 a_n790_n24# sum 0.30fF
+C17 a_n806_n89# w_n801_n52# 3.10fF
+C18 a_n761_n46# in1 0.24fF
+C19 vdd a_n838_n19# 1.44fF
+C20 m2_n830_n41# a_n831_n19# 1.44fF
+C21 carry w_n823_n157# 1.13fF
+C22 m2_n831_n100# a_n832_n78# 1.44fF
+C23 m2_n830_n41# w_n844_n25# 0.46fF
+C24 a_n806_n89# m2_n831_n100# 0.15fF
+C25 vdd in1 0.83fF
+C26 gnd a_n838_n41# 0.35fF
+C27 vdd a_n761_n20# 1.44fF
+C28 a_n771_n176# gnd 0.72fF
+C29 a_n832_n100# m2_n831_n100# 0.72fF
+C30 a_n800_n194# gnd 0.72fF
+C31 in2 in1 0.72fF
+C32 a_n794_n97# gnd 0.72fF
+C33 vdd w_n845_n84# 1.08fF
+C34 a_n761_n46# w_n801_n52# 4.14fF
+C35 gnd in1 0.49fF
+C36 m2_n830_n41# a_n795_n46# 1.44fF
+C37 vdd a_n795_n20# 1.44fF
+C38 vdd gnd 1.35fF
+C39 a_n805_n151# in1 0.24fF
+C40 vdd a_n762_n100# 0.11fF
+C41 w_n801_n52# in1 4.76fF
+C42 in2 w_n845_n84# 2.86fF
+C43 vdd w_n801_n52# 2.47fF
+C44 m2_n831_n100# in1 0.80fF
+C45 w_n823_n157# in1 2.86fF
+C46 vdd a_n790_n24# 0.19fF
+C47 vdd w_n823_n157# 3.34fF
+C48 m2_n831_n100# a_n795_n75# 0.72fF
+C49 gnd in2 0.72fF
+C50 a_n812_n151# vdd 1.44fF
+C51 a_n767_n97# gnd 0.72fF
+C52 a_n795_n46# w_n801_n52# 4.14fF
+C53 m2_n830_n41# w_n801_n52# 1.82fF
+C54 a_n795_n46# a_n790_n24# 0.24fF
+C55 m2_n830_n41# a_n790_n24# 0.72fF
+C56 a_n790_n151# vdd 1.44fF
+C57 in2 w_n823_n157# 2.86fF
+C58 m2_n831_n100# w_n845_n84# 0.46fF
+C59 a_n762_n100# w_n801_n52# 2.86fF
+C60 m2_n831_n100# a_n762_n100# 0.72fF
+C61 a_n771_n151# vdd 1.44fF
+C62 a_n805_n151# w_n823_n157# 5.12fF
+C63 m2_n831_n100# Gnd 1.60fF **FLOATING
+C64 gnd Gnd 11.17fF **FLOATING
+C65 m2_n830_n41# Gnd 1.52fF **FLOATING
+C66 vdd Gnd 16.70fF **FLOATING
+C67 a_n800_n177# Gnd 3.57fF
+C68 carry Gnd 10.53fF
+C69 a_n805_n151# Gnd 14.49fF
+C70 a_n768_n75# Gnd 4.28fF
+C71 a_n795_n75# Gnd 4.65fF
+C72 in2 Gnd 25.20fF
+C73 a_n762_n100# Gnd 19.36fF
+C74 sum Gnd 19.69fF
+C75 a_n806_n89# Gnd 23.45fF
+C76 a_n790_n24# Gnd 6.43fF
+C77 in1 Gnd 27.72fF

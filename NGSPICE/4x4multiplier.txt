@@ -1,0 +1,336 @@
+*4x4 multiplier
+
+.INCLUDE 22nm_MGK.pm
+.INCLUDE AND.txt
+.INCLUDE FullAdder.txt
+.INCLUDE HalfAdder.txt
+
+
+
+*parameters
+
+.PARAM Wmin = 22nm
+.PARAM Lmin = 22nm
+.PARAM XX = 1
+.PARAM tr = 10p
+
+.temp = 25 
+
+vdd n1 0 1
+
+*netlist
+xA1 P0 A0 B0 n1 0 AND
+xA2 O0 A0 B1 n1 0 AND
+xA3 O1 A1 B0 n1 0 AND
+xA4 O2 A0 B2 n1 0 AND
+xA5 O3 A2 B0 n1 0 AND
+xA6 O4 A1 B1 n1 0 AND
+xA7 O5 A1 B2 n1 0 AND
+xA8 O6 A0 B3 n1 0 AND
+xA9 O7 A3 B0 n1 0 AND
+xA10 O8 A2 B1 n1 0 AND
+xA11 O9 A2 B2 n1 0 AND
+xA12 O10 A3 B1 n1 0 AND
+xA13 O11 A1 B3 n1 0 AND
+xA14 O12 A2 B3 n1 0 AND
+xA15 O13 A3 B2 n1 0 AND
+xA16 O14 A3 B3 n1 0 AND
+
+xH1 P1 C0 O0 O1 n1 0 Half
+xH2 S0 C2 O3 O4 n1 0 Half
+xH3 S1 C3 O7 O8 n1 0 Half
+xH4 P4 C8 S4 C5 n1 0 Half
+
+xF1 P2 C1 C0 O2 S0 n1 0 Full
+xF2 S2 C4 S1 O5 C2 n1 0 Full
+xF3 P3 C5 O6 C1 S2 n1 0 Full
+xF4 S3 C6 C3 O9 O10 n1 0 Full
+xF5 S4 C7 S3 C4 O11 n1 0 Full
+xF6 S5 C9 O13 O12 C6 n1 0 Full
+xF7 P5 C10 C7 C8 S5 n1 0 Full
+xF8 P6 CO O14 C9 C10 n1 0 Full
+
+Cout1 P0 0 1f
+Cout2 P1 0 1f
+Cout3 P2 0 1f
+Cout4 P3 0 1f
+Cout5 P4 0 1f
+Cout6 P5 0 1f
+Cout7 P6 0 1f
+Cout8 CO 0 1f
+
+*Input
+V1 A0 0 pwl(0 0 {0+10n} 0 {0+10n+tr} 1 {0+20n} 1 {0+20n+tr} 0 {0+30n} 0 {0+30n+tr} 1 {0+40n} 1 {0+40n+tr} 0 {0+70n} 0 {0+70n+tr} 1 {0+80n} 1 {0+80n+tr} 0 {0+90n} 0 {0+90n+tr} 1 {0+100n} 1)
+V2 A1 0 pwl(0 0 {0+20n} 0 {0+20n+tr} 1 {0+30n} 1 {0+30n+tr} 0 {0+40n} 0 {0+40n+tr} 1 {0+80n} 1 {0+80n+tr} 0 {0+90n} 0 {0+90n+tr} 1 {0+100n} 1)
+V3 A2 0 pwl(0 0 {0+10n} 0 {0+10n+tr} 1 {0+20n} 1 {0+20n+tr} 0 {0+40n} 0 {0+40n+tr} 1 {0+60n} 1 {0+60n+tr} 0 {0+80n} 0 {0+80n+tr} 1 {0+100n} 1) 
+V4 A3 0 pwl(0 0 {0+20n} 0 {0+20n+tr} 1 {0+40n} 1 {0+40n+tr} 0 {0+60n} 0 {0+60n+tr} 1 {0+70n} 1 {0+70n+tr} 0 {0+80n} 0 {0+80n+tr} 1 {0+100n} 1)
+V5 B0 0 pwl(0 0 {0+10n} 0 {0+10n+tr} 1 {0+20n} 1 {0+20n+tr} 0 {0+30n} 0 {0+30n+tr} 1 {0+40n} 1 {0+40n+tr} 0 {0+50n} 0 {0+50n+tr} 1 {0+70n} 1 {0+70n+tr} 0 {0+90n} 0 {0+90n+tr} 1 {0+100n} 1)
+V6 B1 0 pwl(0 0 {0+20n} 0 {0+20n+tr} 1 {0+30n} 1 {0+30n+tr} 0 {0+40n} 0 {0+40n+tr} 1 {0+50n} 1 {0+50n+tr} 0 {0+70n} 0 {0+70n+tr} 1 {0+100n} 1)
+V7 B2 0 pwl(0 0 {0+10n} 0 {0+10n+tr} 1 {0+20n} 1 {0+20n+tr} 0 {0+40n} 0 {0+40n+tr} 1 {0+50n} 1 {0+50n+tr} 0 {0+80n} 0 {0+80n+tr} 1 {0+100n} 1)
+V8 B3 0 pwl(0 0 {0+20n} 0 {0+20n+tr} 1 {0+40n} 1 {0+40n+tr} 0 {0+50n} 0 {0+50n+tr} 1 {0+70n} 1 {0+70n+tr} 0 {0+80n} 0 {0+80n+tr} 1 {0+100n} 1)
+
+.tran 0.1n 100n
+
+*Analysis
+.CONTROL
+
+run
+
+meas tran delay_HL_A_1 trig v(A0) val=0.5 fall=1 targ v(P0) val=0.5 fall=1
+meas tran delay_LH_A_1 trig v(A0) val=0.5 rise=1 targ v(P0) val=0.5 rise=1
+let delay_prop_A_1 = '(delay_HL_A_1 + delay_LH_A_1)/2'
+
+meas tran delay_HL_A_2 trig v(A0) val=0.5 fall=3 targ v(P1) val=0.5 fall=1
+meas tran delay_LH_A_2 trig v(A0) val=0.5 fall=3 targ v(P1) val=0.5 fall=1
+let delay_prop_A_2 = '(delay_HL_A_2 + delay_LH_A_2)/2'
+
+meas tran delay_HL_A_3 trig v(A0) val=0.5 fall=1 targ v(P2) val=0.5 rise=1
+meas tran delay_LH_A_3 trig v(A0) val=0.5 rise = 2 targ v(P2) val=0.5 fall=1
+let delay_prop_A_3 = '(delay_HL_A_3 + delay_LH_A_3)/2'
+
+meas tran delay_HL_A_4 trig v(A0) val=0.5 fall=1 targ v(P3) val=0.5 fall=1
+meas tran delay_LH_A_4 trig v(A0) val=0.5 rise=1 targ v(P3) val=0.5 rise=1
+let delay_prop_A_4 = '(delay_HL_A_4 + delay_LH_A_4)/2'
+
+meas tran delay_HL_A_5 trig v(A0) val=0.5 fall=1 targ v(P4) val=0.5 fall=1
+meas tran delay_LH_A_5 trig v(A0) val=0.5 rise=1 targ v(P4) val=0.5 rise=1
+let delay_prop_A_5 = '(delay_HL_A_5 + delay_LH_A_5)/2'
+
+meas tran delay_HL_A_6 trig v(A0) rise=3 val=0.5 targ v(P5) val=0.5 fall=1
+meas tran delay_LH_A_6 trig v(A0) fall=1 val=0.5 targ v(P5) val=0.5 rise=1
+let delay_prop_A_6 = '(delay_HL_A_6 + delay_LH_A_6)/2'
+
+meas tran delay_HL_A_7 trig v(A0) val=0.5 fall=2 targ v(P6) val=0.5 fall=1
+meas tran delay_LH_A_7 trig v(A0) val=0.5 fall=1 targ v(P6) val=0.5 rise=1
+let delay_prop_A_7 = '(delay_HL_A_7 + delay_LH_A_7)/2'
+
+meas tran delay_HL_A_8 trig v(B2) val=0.5 rise=3 targ v(P5) val=0.5 rise=2
+meas tran delay_LH_A_8 trig v(B2) val=0.5 fall=1 targ v(P5) val=0.5 rise=1
+let delay_prop_A_8 = '(delay_HL_A_8 + delay_LH_A_8)/2'
+
+meas tran delay_HL_A_9 trig v(A1) val=0.5 rise=1 targ v(P0) val=0.5 fall=1
+meas tran delay_LH_A_9 trig v(A1) val=0.5 fall=1 targ v(P0) val=0.5 rise=2
+let delay_prop_A_9 = '(delay_HL_A_9 + delay_LH_A_9)/2'
+
+meas tran delay_HL_A_10 trig v(A1) val=0.5 rise=3 targ v(P1) val=0.5 fall=1
+meas tran delay_LH_A_10 trig v(A1) val=0.5 rise=3 targ v(P1) val=0.5 fall=1
+let delay_prop_A_10 = '(delay_HL_A_10 + delay_LH_A_10)/2'
+
+meas tran delay_HL_A_11 trig v(A1) val=0.5 fall=1 targ v(P2) val=0.5 fall=1
+meas tran delay_LH_A_11 trig v(A1) val=0.5 rise=1 targ v(P2) val=0.5 rise=1
+let delay_prop_A_11 = '(delay_HL_A_11 + delay_LH_A_11)/2'
+
+meas tran delay_HL_A_12 trig v(A1) val=0.5 rise=1 targ v(P3) val=0.5 fall=1
+meas tran delay_LH_A_12 trig v(A1) val=0.5 fall=2 targ v(P3) val=0.5 rise=3
+let delay_prop_A_12 = '(delay_HL_A_12 + delay_LH_A_12)/2'
+
+meas tran delay_HL_A_13 trig v(A1) val=0.5 rise=1 targ v(P4) val=0.5 fall=1
+meas tran delay_LH_A_13 trig v(A1) val=0.5 fall=2 targ v(P4) val=0.5 rise=3
+let delay_prop_A_13 = '(delay_HL_A_13 + delay_LH_A_13)/2'
+
+meas tran delay_HL_A_14 trig v(A1) val=0.5 rise=3 targ v(P5) val=0.5 fall=2
+meas tran delay_LH_A_14 trig v(A1) val=0.5 rise=1 targ v(P5) val=0.5 rise=1
+let delay_prop_A_14 = '(delay_HL_A_14 + delay_LH_A_14)/2'
+
+meas tran delay_HL_A_15 trig v(A1) val=0.5 rise=2 targ v(P6) val=0.5 fall=1
+meas tran delay_LH_A_15 trig v(A1) val=0.5 rise=1 targ v(P6) val=0.5 rise=1
+let delay_prop_A_15 = '(delay_HL_A_15 + delay_LH_A_15)/2'
+
+meas tran delay_HL_A_16 trig v(A1) val=0.5 fall=2 targ v(CO) val=0.5 rise=1
+meas tran delay_LH_A_16 trig v(A1) val=0.5 fall=2 targ v(CO) val=0.5 rise=1
+let delay_prop_A_16 = '(delay_HL_A_16 + delay_LH_A_16)/2'
+
+meas tran delay_HL_A_17 trig v(A2) val=0.5 fall=1 targ v(P0) val=0.5 fall=1
+meas tran delay_LH_A_17 trig v(A2) val=0.5 rise=1 targ v(P0) val=0.5 rise=1
+let delay_prop_A_17 = '(delay_HL_A_17 + delay_LH_A_17)/2'
+
+meas tran delay_HL_A_18 trig v(A2) val=0.5 fall=2 targ v(P2) val=0.5 fall=2
+meas tran delay_LH_A_18 trig v(A2) val=0.5 fall=1 targ v(P2) val=0.5 rise=1
+let delay_prop_A_18 = '(delay_HL_A_18 + delay_LH_A_18)/2'
+
+meas tran delay_HL_A_19 trig v(B3) val=0.5 rise=1 targ v(P0) val=0.5 fall=1
+meas tran delay_LH_A_19 trig v(B3) val=0.5 fall=1 targ v(P0) val=0.5 fall=2
+let delay_prop_A_19 = '(delay_HL_A_19 + delay_LH_A_19)/2'
+
+meas tran delay_HL_A_20 trig v(A2) val=0.5 fall=1 targ v(P3) val=0.5 fall=1
+meas tran delay_LH_A_20 trig v(A2) val=0.5 rise=1 targ v(P3) val=0.5 rise=1
+let delay_prop_A_20 = '(delay_HL_A_20 + delay_LH_A_20)/2'
+
+meas tran delay_HL_A_21 trig v(A2) val=0.5 fall=1 targ v(P4) val=0.5 fall=1
+meas tran delay_LH_A_21 trig v(A2) val=0.5 rise=1 targ v(P4) val=0.5 rise=1
+let delay_prop_A_21 = '(delay_HL_A_21 + delay_LH_A_21)/2'
+
+meas tran delay_HL_A_22 trig v(A2) val=0.5 rise=3 targ v(P5) val=0.5 rise=2
+meas tran delay_LH_A_22 trig v(A2) val=0.5 fall=1 targ v(P5) val=0.5 rise=1
+let delay_prop_A_22 = '(delay_HL_A_22 + delay_LH_A_22)/2'
+
+meas tran delay_HL_A_23 trig v(A2) val=0.5 rise=2 targ v(P6) val=0.5 fall=1
+meas tran delay_LH_A_23 trig v(A2) val=0.5 fall=1 targ v(P6) val=0.5 rise=1
+let delay_prop_A_23 = '(delay_HL_A_23 + delay_LH_A_23)/2'
+
+meas tran delay_HL_A_24 trig v(B3) val=0.5 rise=3 targ v(P1) val=0.5 fall=1
+meas tran delay_LH_A_24 trig v(B3) val=0.5 rise=2 targ v(P1) val=0.5 rise=1
+let delay_prop_A_24 = '(delay_HL_A_24 + delay_LH_A_24)/2'
+
+meas tran delay_HL_A_25 trig v(A3) val=0.5 rise=1 targ v(P0) val=0.5 fall=1
+meas tran delay_LH_A_25 trig v(A3) val=0.5 fall=1 targ v(P0) val=0.5 fall=2
+let delay_prop_A_25 = '(delay_HL_A_25 + delay_LH_A_25)/2'
+
+meas tran delay_HL_A_26 trig v(A3) val=0.5 rise=3 targ v(P1) val=0.5 fall=1
+meas tran delay_LH_A_26 trig v(A3) val=0.5 rise=3 targ v(P1) val=0.5 fall=1
+let delay_prop_A_26 = '(delay_HL_A_26 + delay_LH_A_26)/2'
+
+meas tran delay_HL_A_27 trig v(A3) val=0.5 rise=2 targ v(P2) val=0.5 fall=2
+meas tran delay_LH_A_27 trig v(A3) val=0.5 rise=1 targ v(P2) val=0.5 rise=1
+let delay_prop_A_27 = '(delay_HL_A_27 + delay_LH_A_27)/2'
+
+meas tran delay_HL_A_28 trig v(A3) val=0.5 rise=1 targ v(P3) val=0.5 fall=1
+meas tran delay_LH_A_28 trig v(A3) val=0.5 rise=2 targ v(P3) val=0.5 rise=2
+let delay_prop_A_28 = '(delay_HL_A_28 + delay_LH_A_28)/2'
+
+meas tran delay_HL_A_29 trig v(A3) val=0.5 rise=1 targ v(P4) val=0.5 fall=1
+meas tran delay_LH_A_29 trig v(A3) val=0.5 rise=3 targ v(P4) val=0.5 rise=3
+let delay_prop_A_29 = '(delay_HL_A_29 + delay_LH_A_29)/2'
+
+meas tran delay_HL_A_30 trig v(A3) val=0.5 fall=2 targ v(P5) val=0.5 fall=1
+meas tran delay_LH_A_30 trig v(A3) val=0.5 rise=1 targ v(P5) val=0.5 rise=1
+let delay_prop_A_30 = '(delay_HL_A_30 + delay_LH_A_30)/2'
+
+meas tran delay_HL_A_31 trig v(A3) val=0.5 fall=1 targ v(P6) val=0.5 fall=1
+meas tran delay_LH_A_31 trig v(A3) val=0.5 rise=1 targ v(P6) val=0.5 rise=1
+let delay_prop_A_31 = '(delay_HL_A_31 + delay_LH_A_31)/2'
+
+meas tran delay_HL_A_32 trig v(B3) val=0.5 rise=3 targ v(P2) val=0.5 fall=3
+meas tran delay_LH_A_32 trig v(B3) val=0.5 rise=1 targ v(P2) val=0.5 rise=1
+let delay_prop_A_32 = '(delay_HL_A_32 + delay_LH_A_32)/2'
+
+meas tran delay_HL_A_33 trig v(B0) val=0.5 fall=1 targ v(P0) val=0.5 fall=1
+meas tran delay_LH_A_33 trig v(B0) val=0.5 rise=1 targ v(P0) val=0.5 rise=1
+let delay_prop_A_33 = '(delay_HL_A_33 + delay_LH_A_33)/2'
+
+meas tran delay_HL_A_34 trig v(B0) val=0.5 rise=2 targ v(P2) val=0.5 fall=1
+meas tran delay_LH_A_34 trig v(B0) val=0.5 fall=1 targ v(P2) val=0.5 rise=1
+let delay_prop_A_34 = '(delay_HL_A_34 + delay_LH_A_34)/2'
+
+meas tran delay_HL_A_35 trig v(B0) val=0.5 fall=1 targ v(P3) val=0.5 fall=1
+meas tran delay_LH_A_35 trig v(B0) val=0.5 rise=1 targ v(P3) val=0.5 rise=1
+let delay_prop_A_35 = '(delay_HL_A_35 + delay_LH_A_35)/2'
+
+meas tran delay_HL_A_36 trig v(B0) val=0.5 fall=1 targ v(P4) val=0.5 fall=1
+meas tran delay_LH_A_36 trig v(B0) val=0.5 rise=1 targ v(P4) val=0.5 rise=1
+let delay_prop_A_36 = '(delay_HL_A_36 + delay_LH_A_36)/2'
+
+meas tran delay_HL_A_37 trig v(B0) val=0.5 fall=3 targ v(P5) val=0.5 fall=1
+meas tran delay_LH_A_37 trig v(B0) val=0.5 fall=1 targ v(P5) val=0.5 rise=1
+let delay_prop_A_37 = '(delay_HL_A_37 + delay_LH_A_37)/2'
+
+meas tran delay_HL_A_38 trig v(B0) val=0.5 fall=2 targ v(P6) val=0.5 fall=1
+meas tran delay_LH_A_38 trig v(B0) val=0.5 fall=1 targ v(P6) val=0.5 rise=1
+let delay_prop_A_38 = '(delay_HL_A_38 + delay_LH_A_38)/2'
+
+meas tran delay_HL_A_39 trig v(B3) val=0.5 rise=1 targ v(P3) val=0.5 fall=1
+meas tran delay_LH_A_39 trig v(B3) val=0.5 rise=3 targ v(P3) val=0.5 rise=3
+let delay_prop_A_39 = '(delay_HL_A_39 + delay_LH_A_39)/2'
+
+meas tran delay_HL_A_40 trig v(B1) val=0.5 rise=1 targ v(P0) val=0.5 fall=1
+meas tran delay_LH_A_40 trig v(B1) val=0.5 fall=1 targ v(P0) val=0.5 rise=2
+let delay_prop_A_40 = '(delay_HL_A_40 + delay_LH_A_40)/2'
+
+meas tran delay_HL_A_41 trig v(B1) val=0.5 fall=1 targ v(P2) val=0.5 fall=1
+meas tran delay_LH_A_41 trig v(B1) val=0.5 rise=1 targ v(P2) val=0.5 rise=1
+let delay_prop_A_41 = '(delay_HL_A_41 + delay_LH_A_41)/2'
+
+meas tran delay_HL_A_42 trig v(B1) val=0.5 rise=1 targ v(P3) val=0.5 fall=1
+meas tran delay_LH_A_42 trig v(B1) val=0.5 rise=3 targ v(P3) val=0.5 fall=2
+let delay_prop_A_42 = '(delay_HL_A_42 + delay_LH_A_42)/2'
+
+meas tran delay_HL_A_43 trig v(B1) val=0.5 rise=1 targ v(P4) val=0.5 fall=1
+meas tran delay_LH_A_43 trig v(B1) val=0.5 fall=2 targ v(P4) val=0.5 rise=2
+let delay_prop_A_43 = '(delay_HL_A_43 + delay_LH_A_43)/2'
+
+meas tran delay_HL_A_44 trig v(B1) val=0.5 rise=3 targ v(P5) val=0.5 fall=1
+meas tran delay_LH_A_44 trig v(B1) val=0.5 rise=1 targ v(P5) val=0.5 rise=1
+let delay_prop_A_44 = '(delay_HL_A_44 + delay_LH_A_44)/2'
+
+meas tran delay_HL_A_45 trig v(B1) val=0.5 rise=2 targ v(P6) val=0.5 fall=1
+meas tran delay_LH_A_45 trig v(B1) val=0.5 rise=1 targ v(P6) val=0.5 rise=1
+let delay_prop_A_45 = '(delay_HL_A_45 + delay_LH_A_45)/2'
+
+meas tran delay_HL_A_46 trig v(B2) val=0.5 fall=1 targ v(P0) val=0.5 fall=1
+meas tran delay_LH_A_46 trig v(B2) val=0.5 rise=1 targ v(P0) val=0.5 rise=1
+let delay_prop_A_46 = '(delay_HL_A_46 + delay_LH_A_46)/2'
+
+meas tran delay_HL_A_47 trig v(B2) val=0.5 rise=3 targ v(P1) val=0.5 fall=1
+meas tran delay_LH_A_47 trig v(B2) val=0.5 fall=2 targ v(P1) val=0.5 rise=1
+let delay_prop_A_47 = '(delay_HL_A_47 + delay_LH_A_47)/2'
+
+meas tran delay_HL_A_48 trig v(B2) val=0.5 rise=3 targ v(P2) val=0.5 fall=3
+meas tran delay_LH_A_48 trig v(B2) val=0.5 fall=1 targ v(P2) val=0.5 rise=1
+let delay_prop_A_48 = '(delay_HL_A_48 + delay_LH_A_48)/2'
+
+meas tran delay_HL_A_49 trig v(B2) val=0.5 fall=1 targ v(P3) val=0.5 fall=1
+meas tran delay_LH_A_49 trig v(B2) val=0.5 rise=1 targ v(P3) val=0.5 rise=1
+let delay_prop_A_49 = '(delay_HL_A_49 + delay_LH_A_49)/2'
+
+meas tran delay_HL_A_50 trig v(B2) val=0.5 fall=1 targ v(P4) val=0.5 fall=1
+meas tran delay_LH_A_50 trig v(B2) val=0.5 rise=1 targ v(P4) val=0.5 rise=1
+let delay_prop_A_50 = '(delay_HL_A_50 + delay_LH_A_50)/2'
+
+*echo "$&delay_prop_a_1">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_2">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_3">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_4">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_5">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_6">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_7">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_8">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_9">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_10">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_11">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_12">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_13">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_14">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_15">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_16">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_17">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_18">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_19">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_20">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_21">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_22">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_23">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_24">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_25">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_26">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_27">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_28">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_29">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_30">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_31">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_32">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_33">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_34">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_35">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_36">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_37">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_38">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_39">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_40">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_41">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_42">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_43">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_44">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_45">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_46">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_47">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_48">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_49">>"Propogationdelays.txt"
+*echo "$&delay_prop_a_50">>"Propogationdelays.txt"
+
+
+
+plot v(A0) v(A1)+2 v(A2)+4 v(A3)+6 v(B0)+8 v(B1)+10 v(B2)+12 v(B3)+14 
+plot v(P0) v(P1)+2 v(P2)+4 v(P3)+6 v(P4)+8 v(P5)+10 v(P6)+12 v(CO)+14
+
+.ENDC
+.END

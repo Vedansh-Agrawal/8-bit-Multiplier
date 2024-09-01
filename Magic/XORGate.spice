@@ -1,0 +1,27 @@
+* SPICE3 file created from XORGate.ext - technology: scmos
+
+.option scale=1u
+
+M1000 a_n663_199# B0 a_n691_178# w_n669_166# pfet w=8 l=2
++  ad=40 pd=26 as=80 ps=52
+M1001 a_n663_180# a_n691_178# P0 w_n669_166# pfet w=8 l=2
++  ad=40 pd=26 as=40 ps=26
+M1002 a_n663_221# A0 a_n691_178# w_n669_166# pfet w=8 l=2
++  ad=40 pd=26 as=0 ps=0
+M1003 a_n706_209# B0 a_n706_202# Gnd nfet w=4 l=2
++  ad=20 pd=18 as=40 ps=36
+M1004 a_n688_180# a_n691_178# P0 Gnd nfet w=4 l=2
++  ad=20 pd=18 as=20 ps=18
+M1005 a_n706_202# A0 a_n691_178# Gnd nfet w=4 l=2
++  ad=0 pd=0 as=20 ps=18
+C0 a_n691_178# w_n669_166# 5.12fF
+C1 B0 w_n669_166# 2.86fF
+C2 n1 w_n669_166# 3.17fF
+C3 w_n669_166# A0 2.86fF
+C4 n1 Gnd 12.79fF **FLOATING
+C5 m2_n714_181# Gnd 6.00fF **FLOATING
+C6 P0 Gnd 142.50fF
+C7 a_n691_178# Gnd 14.49fF
+C8 a_n706_202# Gnd 3.57fF
+C9 A0 Gnd 13.82fF
+C10 B0 Gnd 36.24fF

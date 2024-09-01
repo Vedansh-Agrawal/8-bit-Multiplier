@@ -1,0 +1,43 @@
+* SPICE3 file created from XORGate.ext - technology: scmos
+.INCLUDE TSMC_180nm.txt
+.option scale=1u
+
+
+vdd vdd 0 1
+vin1 in1 0 pulse 0 1 0 50p 50p 80n 170n 0
+vin2 in2 0 pulse 0 1 0 50p 50p 160n 170n 0
+
+M1000 a_n2017_199# in1 a_n2045_178# w_n2023_166# PMOS w=8 l=2
++  ad=40 pd=26 as=80 ps=52
+M1001 a_n2017_180# a_n2045_178# out w_n2023_166# PMOS w=8 l=2
++  ad=40 pd=26 as=40 ps=26
+M1002 a_n2017_221# in2 a_n2045_178# w_n2023_166# PMOS w=8 l=2
++  ad=40 pd=26 as=0 ps=0
+M1003 a_n2060_209# in1 a_n2060_202# Gnd NMOS w=4 l=2
++  ad=20 pd=18 as=40 ps=36
+M1004 a_n2042_180# a_n2045_178# out Gnd NMOS w=4 l=2
++  ad=20 pd=18 as=20 ps=18
+M1005 a_n2060_202# in2 a_n2045_178# Gnd NMOS w=4 l=2
++  ad=0 pd=0 as=20 ps=18
+C0 w_n2023_166# a_n2045_178# 5.12fF
+C1 w_n2023_166# in1 2.86fF
+C2 w_n2023_166# in2 2.86fF
+C3 w_n2023_166# vdd 3.17fF
+*C4 gnd Gnd 4.33fF **FLOATING
+*C5 vdd Gnd 6.75fF **FLOATING
+C6 out Gnd 5.45fF
+C7 a_n2045_178# Gnd 14.49fF
+C8 a_n2060_202# Gnd 3.57fF
+C9 in2 Gnd 13.82fF
+C10 in1 Gnd 36.24fF
+
+.tran 0.1n 340n
+
+.CONTROL
+
+run
+
+plot v(in1) v(in2)+2 v(out)+4
+
+.ENDC
+.END

@@ -1,0 +1,172 @@
+* SPICE3 file created from XORGate.ext - technology: scmos
+
+.option scale=1u
+
+M1000 a_n1660_n159# in1 a_n1660_n166# Gnd nfet w=4 l=2
++  ad=20 pd=18 as=20 ps=18
+M1001 a_n1644_n15# in2 a_n1644_n22# Gnd nfet w=4 l=2
++  ad=20 pd=18 as=20 ps=18
+M1002 a_n1644_n51# in3 a_n1644_n58# Gnd nfet w=4 l=2
++  ad=20 pd=18 as=20 ps=18
+M1003 a_n1677_n135# in2 a_n1677_n142# Gnd nfet w=4 l=2
++  ad=20 pd=18 as=20 ps=18
+M1004 a_n1557_n15# in1 a_n1557_n22# w_n1602_n175# pfet w=8 l=2
++  ad=40 pd=26 as=40 ps=26
+M1005 a_n1557_n87# in3 a_n1557_n94# w_n1602_n175# pfet w=8 l=2
++  ad=40 pd=26 as=40 ps=26
+M1006 a_n1577_n159# in1 a_n1577_n166# w_n1602_n175# pfet w=8 l=2
++  ad=40 pd=26 as=40 ps=26
+M1007 a_n1677_n39# in1 a_n1677_n46# Gnd nfet w=4 l=2
++  ad=20 pd=18 as=20 ps=18
+M1008 a_n1557_n135# in2 a_n1557_n142# w_n1602_n175# pfet w=8 l=2
++  ad=40 pd=26 as=40 ps=26
+M1009 a_n1644_n159# a_n1646_n161# a_n1644_n166# Gnd nfet w=4 l=2
++  ad=20 pd=18 as=40 ps=36
+M1010 a_n1596_n111# a_n1681_n204# a_n1644_n166# w_n1602_n175# pfet w=8 l=2
++  ad=40 pd=26 as=80 ps=52
+M1011 a_n1596_n15# in2 a_n1596_n22# w_n1602_n175# pfet w=8 l=2
++  ad=40 pd=26 as=40 ps=26
+M1012 a_n1596_n51# in3 a_n1596_n58# w_n1602_n175# pfet w=8 l=2
++  ad=40 pd=26 as=40 ps=26
+M1013 a_n1652_n202# a_n1681_n204# carry w_n1660_n216# pfet w=8 l=2
++  ad=40 pd=26 as=40 ps=26
+M1014 a_n1677_n111# in1 a_n1677_n118# Gnd nfet w=4 l=2
++  ad=20 pd=18 as=20 ps=18
+M1015 a_n1557_n63# in2 a_n1557_n70# w_n1602_n175# pfet w=8 l=2
++  ad=40 pd=26 as=40 ps=26
+M1016 a_n1677_n15# in1 a_n1677_n22# Gnd nfet w=4 l=2
++  ad=20 pd=18 as=20 ps=18
+M1017 a_n1677_n87# in3 a_n1677_n94# Gnd nfet w=4 l=2
++  ad=20 pd=18 as=20 ps=18
+M1018 a_n1557_n111# in1 a_n1557_n118# w_n1602_n175# pfet w=8 l=2
++  ad=40 pd=26 as=40 ps=26
+M1019 a_n1596_n159# a_n1646_n161# a_n1644_n166# w_n1602_n175# pfet w=8 l=2
++  ad=40 pd=26 as=0 ps=0
+M1020 a_n1557_n187# a_n1644_n166# sum w_n1602_n175# pfet w=8 l=2
++  ad=40 pd=26 as=40 ps=26
+M1021 a_n1677_n159# in2 a_n1677_n166# Gnd nfet w=4 l=2
++  ad=20 pd=18 as=20 ps=18
+M1022 a_n1557_n39# in1 a_n1557_n46# w_n1602_n175# pfet w=8 l=2
++  ad=40 pd=26 as=40 ps=26
+M1023 a_n1677_n63# in2 a_n1677_n70# Gnd nfet w=4 l=2
++  ad=20 pd=18 as=20 ps=18
+M1024 a_n1644_n111# a_n1681_n204# a_n1644_n166# Gnd nfet w=4 l=2
++  ad=20 pd=18 as=0 ps=0
+M1025 a_n1557_n159# in2 a_n1557_n166# w_n1602_n175# pfet w=8 l=2
++  ad=40 pd=26 as=40 ps=26
+M1026 a_n1677_n202# a_n1681_n204# carry Gnd nfet w=4 l=2
++  ad=20 pd=18 as=20 ps=18
+M1027 a_n1584_n187# a_n1644_n166# sum Gnd nfet w=4 l=2
++  ad=20 pd=18 as=20 ps=18
+C0 w_n1660_n216# carry 1.50fF
+C1 a_n1652_n202# vdd 1.44fF
+C2 a_n1677_n166# m2_n1677_n166# 0.72fF
+C3 a_n1557_n39# vdd 1.44fF
+C4 a_n1677_n39# gnd 0.72fF
+C5 a_n1677_n135# gnd 0.72fF
+C6 a_n1681_n204# m2_n1677_n166# 1.80fF
+C7 a_n1681_n204# in2 0.60fF
+C8 a_n1677_n111# gnd 0.72fF
+C9 a_n1596_n15# m2_n1596_n14# 1.44fF
+C10 in3 m2_n1644_n58# 0.30fF
+C11 in1 m2_n1596_n158# 0.15fF
+C12 in1 w_n1602_n175# 85.57fF
+C13 a_n1577_n159# m2_n1577_n158# 1.44fF
+C14 in1 vdd 14.22fF
+C15 in2 m2_n1596_n50# 0.83fF
+C16 a_n1557_n159# vdd 1.44fF
+C17 a_n1660_n159# m2_n1677_n166# 0.72fF
+C18 a_n1557_n46# m2_n1596_n50# 1.44fF
+C19 in3 in2 1.08fF
+C20 a_n1677_n63# gnd 0.72fF
+C21 a_n1557_n63# vdd 1.44fF
+C22 a_n1646_n161# in3 0.72fF
+C23 a_n1644_n15# m2_n1677_n22# 0.72fF
+C24 in3 m2_n1677_n70# 4.14fF
+C25 w_n1602_n175# m2_n1596_n110# 5.78fF
+C26 w_n1660_n216# vdd 0.53fF
+C27 in2 m2_n1677_n142# 0.11fF
+C28 a_n1557_n135# vdd 1.44fF
+C29 a_n1677_n118# m2_n1677_n142# 0.72fF
+C30 a_n1557_n70# m2_n1596_n50# 1.44fF
+C31 in2 m2_n1644_n58# 1.59fF
+C32 a_n1584_n187# gnd 0.72fF
+C33 a_n1644_n166# in3 0.72fF
+C34 a_n1644_n51# m2_n1677_n70# 0.72fF
+C35 w_n1602_n175# m2_n1596_n158# 1.14fF
+C36 w_n1602_n175# vdd 10.91fF
+C37 a_n1557_n142# m2_n1596_n110# 1.44fF
+C38 a_n1644_n159# m2_n1660_n166# 0.72fF
+C39 a_n1681_n204# in1 0.24fF
+C40 w_n1602_n175# m2_n1577_n158# 1.37fF
+C41 in1 m2_n1596_n50# 1.44fF
+C42 in3 in1 1.11fF
+C43 a_n1677_n159# gnd 0.72fF
+C44 a_n1644_n166# in2 0.48fF
+C45 a_n1681_n204# w_n1660_n216# 3.34fF
+C46 a_n1681_n204# gnd 0.72fF
+C47 in1 m2_n1596_n14# 0.72fF
+C48 a_n1557_n187# vdd 1.44fF
+C49 a_n1644_n166# a_n1646_n161# 0.24fF
+C50 a_n1677_n46# m2_n1677_n70# 0.72fF
+C51 in1 m2_n1677_n142# 0.27fF
+C52 a_n1596_n111# m2_n1596_n110# 1.44fF
+C53 a_n1681_n204# w_n1602_n175# 3.10fF
+C54 a_n1557_n87# vdd 1.44fF
+C55 in1 m2_n1644_n58# 0.15fF
+C56 sum w_n1602_n175# 1.32fF
+C57 sum vdd 0.72fF
+C58 a_n1677_n202# gnd 0.72fF
+C59 a_n1557_n22# m2_n1596_n14# 1.44fF
+C60 a_n1677_n70# m2_n1677_n70# 0.72fF
+C61 w_n1602_n175# m2_n1596_n50# 3.69fF
+C62 a_n1557_n166# m2_n1577_n158# 1.44fF
+C63 in2 in1 1.68fF
+C64 a_n1557_n15# vdd 1.44fF
+C65 in3 w_n1602_n175# 14.76fF
+C66 a_n1557_n94# m2_n1596_n110# 1.44fF
+C67 w_n1602_n175# m2_n1596_n14# 2.51fF
+C68 a_n1660_n166# m2_n1660_n166# 0.72fF
+C69 in2 m2_n1596_n110# 1.55fF
+C70 in1 m2_n1660_n166# 0.15fF
+C71 a_n1677_n142# m2_n1677_n142# 0.72fF
+C72 a_n1644_n166# in1 0.48fF
+C73 a_n1557_n111# vdd 1.44fF
+C74 a_n1677_n87# gnd 0.72fF
+C75 w_n1602_n175# m2_n1644_n58# 0.91fF
+C76 a_n1644_n111# m2_n1677_n142# 0.72fF
+C77 a_n1677_n94# m2_n1677_n142# 0.72fF
+C78 a_n1677_n22# m2_n1677_n22# 0.72fF
+C79 a_n1596_n22# m2_n1644_n58# 1.44fF
+C80 a_n1596_n58# m2_n1644_n58# 1.44fF
+C81 a_n1577_n166# m2_n1596_n158# 1.44fF
+C82 in2 w_n1602_n175# 71.72fF
+C83 a_n1646_n161# w_n1602_n175# 2.38fF
+C84 a_n1596_n51# m2_n1596_n50# 1.44fF
+C85 a_n1644_n22# m2_n1644_n58# 0.72fF
+C86 a_n1681_n204# in3 0.87fF
+C87 in3 m2_n1677_n22# 1.80fF
+C88 a_n1644_n58# m2_n1644_n58# 0.72fF
+C89 a_n1677_n15# gnd 0.72fF
+C90 a_n1596_n159# m2_n1596_n158# 1.44fF
+C91 a_n1557_n118# m2_n1596_n110# 1.44fF
+C92 a_n1644_n166# w_n1602_n175# 5.12fF
+C93 a_n1681_n204# m2_n1677_n142# 1.98fF
+C94 a_n1681_n204# m2_n1644_n58# 0.72fF
+C95 in1 m2_n1596_n110# 0.99fF
+C96 m2_n1660_n166# Gnd 1.22fF **FLOATING
+C97 m2_n1677_n166# Gnd 0.68fF **FLOATING
+C98 m2_n1677_n142# Gnd 5.85fF **FLOATING
+C99 m2_n1677_n70# Gnd 2.89fF **FLOATING
+C100 m2_n1644_n58# Gnd 10.72fF **FLOATING
+C101 m2_n1677_n22# Gnd 1.90fF **FLOATING
+C102 vdd Gnd 30.32fF **FLOATING
+C103 gnd Gnd 26.52fF **FLOATING
+C104 carry Gnd 8.32fF
+C105 sum Gnd 9.02fF
+C106 a_n1646_n161# Gnd 11.26fF
+C107 a_n1644_n166# Gnd 37.29fF
+C108 a_n1681_n204# Gnd 44.17fF
+C109 in3 Gnd 69.29fF
+C110 in2 Gnd 93.77fF
+C111 in1 Gnd 104.75fF
